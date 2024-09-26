@@ -1,0 +1,75 @@
+.full-height {
+  height: 100dvh;
+}
+
+.myPrimary {
+  color: #00336e;
+}
+
+.container-bg {
+  background-color: aliceblue;
+  padding: 20px 15px;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  box-shadow: 0 4px 20px #00336e2b; /* Shadow effect */
+}
+
+.todoContainer {
+  background-color: aliceblue;
+}
+
+.linksColor {
+  color: #00336e;
+}
+.linksColor:hover {
+  color: #00336ecd;
+
+  transition: all 300ms;
+}
+
+.signoutStyle {
+  color: grey;
+  cursor: pointer;
+  transition: all 300ms;
+  text-decoration: none;
+}
+
+.signoutStyle:hover {
+  color: #000000;
+}
+
+.myPrimaryButton {
+  background-color: #00336e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.myPrimaryButton:hover {
+  background-color: #00336ecd;
+  color: white;
+}
+
+.myDangerButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms;
+}
+.myDangerButton:hover {
+  background-color: darkred;
+  color: white;
+}

@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block title %} Register page {% endblock title %}
+{%block content %}
+<div class="container-bg col col-md-4 col-sm-4 col-lg-4">
+  <div class="container">
+    <h2>Register</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p class="text-danger">{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <form method="POST" class="mb-3">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username*</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          aria-describedby="username"
+          placeholder="Enter a username"
+          {% if username %}
+          value="{{username}}"
+          
+          {% endif %}
+        />
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address*</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          aria-describedby="email"
+          placeholder="Enter your email address"
+          {% if email %}
+          value="{{email}}"
+          {% endif %}
+        />
+        <p id="email" class="form-text">
+          We'll never share your email with anyone else.
+        </p>
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label">Password*</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          id="password"
+          aria-describedby="password"
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <div>
+        <button type="submit" class="btn myPrimaryButton w-100">
+          <span class="text-white fw-bold fs-5"> Register </span>
+        </button>
+      </div>
+    </form>
+    <p class="text-center">
+      <span class="text-secondary"> Already a member? </span>
+      <a href="{% url 'signin' %}" class="linksColor text-decoration-none"
+        >Sign in</a
+      >
+    </p>
+  </div>
+</div>
+{% endblock %}

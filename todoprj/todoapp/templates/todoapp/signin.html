@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title %} Sign in page {% endblock title %}
+{%block content %}
+<div class="container-bg col col-md-4 col-sm-4 col-lg-4">
+  <div class="container">
+    <h2>Sign In</h2>
+    {% if messages %}
+      {% for message in messages %}
+        <p class="text-danger">{{message}}</p>
+      {% endfor %} 
+    {% endif %}
+    <form method="POST" class="mb-3">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          id="username"
+          aria-describedby="username"
+          placeholder="Enter a username"
+        />
+      </div>
+      <div class="mb-1">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          id="password"
+          aria-describedby="password"
+          placeholder="Enter your password"
+        />
+      </div>
+      <div class="text-end mb-3">
+        <a class="linksColor text-decoration-none" href="">Forgot password?</a>
+      </div>
+      <div>
+        <button type="submit" class="btn myPrimaryButton w-100">
+          <span class="text-white fw-bold fs-5"> Sign In </span>
+        </button>
+      </div>
+    </form>
+    <p class="text-center">
+      <span class="text-secondary"> Don't have an account? </span>
+
+      <a href="{% url 'register' %}" class="linksColor text-decoration-none"
+        >Register now</a
+      >
+    </p>
+  </div>
+</div>
+{% endblock %}

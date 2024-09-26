@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block title %} Home page {% endblock title %}
+{%block content %}
+
+<div class="container-bg todoContainer col-6">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h1 class="text-dark">Todos</h1>
+      <div class="d-flex">
+        <p class="text-success me-2">{{username}}</p>
+        <div>
+          <a href="{% url "signout" %}" class="signoutStyle">Sign out</a>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <form method="POST">
+        {% csrf_token %}
+        <label for="title" class="form-label text-dark">What to do? </label>
+        {% if messages %}
+          {% for message in messages  %}
+            <p class="text-danger"> {{message}} </p>
+          {% endfor %}
+        {% endif %}
+       <div class="d-flex">
+         <input
+          type="text"
+          name="title"
+          id="title"
+          class="form-control me-3"
+          placeholder="Add a task"
+        />
+        <input type="submit" class="btn myPrimaryButton" value="Save">
+       </div>
+      </form>
+    </div>
+    <table class="table table-light table-bordered">
+      <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Created at</th>
+        <th>Action</th>
+      </tr>
+      {% if todos %} {% for todo in todos %}
+      <tr>
+        <td>{{todo.title}}</td>
+        {% if todo.status == True %}
+        <td>Completed</td>
+        {% else %}
+        <td>Not completed</td>
+        {% endif %}
+        <td> {{todo.created_at}} </td>
+        <td>
+          <a href="{% url "update" todo.id %}" class="btn myPrimaryButton">Finished</a> |
+          <a href="{% url "delete" todo.id %}" class="btn myDangerButton">Delete</a>
+        </td>
+      </tr>
+      {% endfor %} {% endif %}
+    </table>
+  </div>
+</div>
+
+{% endblock %}

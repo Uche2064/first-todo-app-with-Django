@@ -1,0 +1,4 @@
+venv/
+__init__.py
+__pycache__.py
+todoprj/db.sqlite3
