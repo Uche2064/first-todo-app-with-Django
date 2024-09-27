@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: todo_app_with_django
+    env_file:
+      - .env
+    volumes:
+      - .:/todo_app_with_django
+    ports:
+      - "8000:8000"
