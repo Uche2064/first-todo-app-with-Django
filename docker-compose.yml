@@ -7,6 +7,8 @@ services:
     container_name: todo_app_with_django
     env_file:
       - .env
+    environment:
+      DJANGO_SECRET_KEY: "django-insecure-8k*4^2lx0zsbz$&o&#4ze*-o230!d^%0f#ui&akraycjz#su9i"
     volumes:
       - .:/todo_app_with_django
     ports:
