@@ -40,7 +40,7 @@ COPY requirements.txt /tmp/requirements.txt
 # copy the project code into the container's working directory
 COPY ./todoprj /code
 
-COPY .env /code/.env
+# COPY .env /code/.env
 
 
 # Install the Python project requirements
